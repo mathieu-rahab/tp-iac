@@ -1,7 +1,7 @@
 variable "container_name" {
   description = "Nom du conteneur Web"
   type        = string
-  default     = "tp-iac-nginx"
+  default     = "tp-iac-web"
 
   validation {
     condition     = can(regex("^[a-zA-Z0-9][a-zA-Z0-9_.-]*$", var.container_name))
@@ -9,10 +9,21 @@ variable "container_name" {
   }
 }
 
+variable "network_name" {
+  description = "Nom du reseaux"
+  type        = string
+  default     = "network"
+
+  validation {
+    condition     = can(regex("^[a-zA-Z0-9][a-zA-Z0-9_.-]*$", var.network_name))
+    error_message = "Le nom du reseaux contient des caractères non autorisés."
+  }
+}
+
 variable "external_port" {
   description = "Port HTTP exposé sur la machine locale"
   type        = number
-  default     = 8080
+  default     = 8082
 
   validation {
     condition     = var.external_port >= 1024 && var.external_port <= 65535
