@@ -34,6 +34,7 @@ resource "docker_container" "web" {
     name = docker_network.app_network.name
   }
 
+
   mounts {
     target = "/usr/share/nginx/html"
     source = abspath("${path.module}/html")
