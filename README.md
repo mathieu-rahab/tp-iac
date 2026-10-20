@@ -162,7 +162,15 @@ Terraform détecte que le conteneur n'est plus actif et propose de le recréer. 
 
 Exercice 6 — CI/CD
 
-
+```bash
+Error: Unclosed configuration block
+│ 
+│   on main.tf line 23, in resource "docker_container" "web":
+│   23: resource "docker_container" "web" {
+│ 
+│ There is no closing brace for this block before the end of the file. This
+│ may be caused by incorrect brace nesting elsewhere in this file.
+```
 
 Exercice 7 — Nettoyage
 
